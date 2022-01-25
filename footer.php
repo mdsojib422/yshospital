@@ -1,5 +1,6 @@
 
 <!-- Javascript -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="<?= assets_url("assets/bundles/libscripts.bundle.js"); ?>"></script>
 <script src="<?= assets_url("assets/bundles/vendorscripts.bundle.js");?>"></script>
 
@@ -20,6 +21,13 @@ $(function () {
     });
 });
 </script>
-<script src="<?= assets_url('assets/js/index.js'); ?>"></script>
+<?php 
+if(getPageUrl() == "doctor-profile.php"){
+?>
+<script src="<?= assets_url('assets/js/dr-profile.js'); ?>"></script>
+<?php
+}
+?>
+
 </body>
 </html>

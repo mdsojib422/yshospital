@@ -4,7 +4,7 @@
     require_once "functions.php";   
     Session::init();
    if(Session::checkLogin()){
-    header( "refresh:1;url=index.php");
+    header("Location:index.php");
     }  
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])){
         $user =  new User();

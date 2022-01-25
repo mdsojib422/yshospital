@@ -1,5 +1,6 @@
 <?php 
 require_once "functions.php"; 
+require_once "inc/Ysquery.php"; 
 require_once "inc/auth/Session.php";
 Session::init(); 
 if(getPageUrl() == "index.php"){
@@ -11,6 +12,7 @@ if(getPageUrl() == "index.php"){
         Session::destroy();
     }
 }
+
 
 
 ?>

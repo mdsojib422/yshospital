@@ -1,12 +1,24 @@
 ﻿<?php 
-    require_once("../header.php");
+require_once("../header.php");
+$id = Session::get("usrid"); 
+$ysquery = new Ysquery();
+$res = $ysquery->getOneCollumns($id,"ys_users","images");
+$photos =  $res['images'];
+
+
+$image = !empty($photos) ? assets_url("uploads/profile/".$res['images']) : assets_url('assets/images/user.png');
+
+
+
 ?>
 <div id="main-content" class="profilepage_2 blog-page">
         <div class="container-fluid">
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Docter Profile</h2>
+<h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> 
+Docter Profile
+</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item">Doctor</li>
@@ -47,19 +59,20 @@
         <img src="../assets/images/user.png" class="rounded-circle" alt=""> 
     </div> -->
 <script>
-        var loadFile = function (event) {
+        /* var loadFile = function (event) {
         var image = document.getElementById("output");
         image.src = URL.createObjectURL(event.target.files[0]);
-      };
+      }; */
       
 </script>
 <div class="profile-pic">
-  <label class="-label" for="file">
+  <label class="-label" for="profile_img">
  <span class="glyphicon glyphicon-camera"></span>
     <span>Change Image</span>
-  </label>
-  <input id="file" type="file" onchange="loadFile(event)"/>
-  <img src=" <?= assets_url('assets/images/user.png'); ?>" id="output" width="200" />
+  </label>  
+    <input  type="file" id="profile_img" name="profile_img" /> 
+ 
+  <img src=" <?= $image; ?>" id="profile_prev" width="200" />
 </div>
 
 

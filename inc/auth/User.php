@@ -39,9 +39,11 @@ class User{
             $result = $this->getLoginUser($sql);
             Session::init();
             Session::set("login",true);
+            Session::set("usrid",$result->id);
             Session::set("flname",$result->flname);
             Session::set("ysemail",$result->email);
             Session::set("ysuname",$result->uname);
+            Session::set("primg",$result->images);
             header("Location:http://localhost/YSHospital/");
            
             
